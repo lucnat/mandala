@@ -4,7 +4,7 @@
 	</head>
 	<body onload="InitThis();" style="padding: 10px">
 		<h2>Mandala Male</h2>
-        <button class="btn btn-primary" onclick="javascript:clearArea();return false;">Namal noi aafange</button> 
+        <button class="btn btn-danger" onclick="javascript:clearArea();return false;">Namal noi aafange</button> 
 		&nbsp;&nbsp;&nbsp;&nbsp;
         Dicki vom Stift: <select id="selWidth">
             <option value="1" selected="true">1</option>
@@ -14,10 +14,10 @@
             <option value="10">10</option>
         </select>
         		&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-primary">Kunstwerk abelade</button> 
+        <button class="btn btn-primary disabled">Kunstwerk abelade</button> <i>coming soon!</i>
         		&nbsp;&nbsp;&nbsp;&nbsp;
 
-        <button class="btn btn-primary">Kunstwerk Share</button> 
+        <button class="btn btn-primary disabled">Kunstwerk Share</button>  <i>coming soon!</i>
 
 <!--        
 		 Color : <select id="selColor">
@@ -31,10 +31,12 @@
  -->		
 
  			<br><br>
- 			<div style="text-align: left">
+ 			<div style="text-align: left; height: 1000px">
 				<canvas id="bg" width="1000" height="1000" style="position:absolute;"></canvas>
 				<canvas id="myCanvas" width="1000" height="1000" style="position:absolute; border: 1px solid black;"></canvas>
 			</div>
+			<br><br>
+			<p>Programmiert mit ganz viel Liebi vom Luc. <a href="mailto:luca@naterop.net?Subject=Danke%20Luc">Danke sege</a> oder <a href="https://github.com/LucNaterop/mandala" target="_blank">code aluege</a></p>
 	</body>
 
 
@@ -52,11 +54,12 @@ var amountAxis = 1;
 function copyOnOthers(){
     myCanvas = document.getElementById('myCanvas')
     bg = document.getElementById('bg').getContext('2d')
-    bg.translate(500,500);
-    bg.rotate(22.5*Math.PI/180);
-    bg.translate(-500,-500);
-    bg.drawImage(myCanvas,0,0);
-
+    for(var i=0; i<8; i++){
+	    bg.translate(500,500);
+	    bg.rotate(22.5*Math.PI/180);
+	    bg.translate(-500,-500);
+	    bg.drawImage(myCanvas,0,0);
+    }
 }
 
 function InitThis() {
