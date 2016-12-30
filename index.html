@@ -13,11 +13,26 @@
             <option value="6">6</option>
             <option value="10">10</option>
         </select>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        Azahl Spiegelachse <select id="amountAxis">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">3</option>
+            <option value="6">6</option>
+            <option value="8">8</option>
+            <option value="10" selected="true">10</option>
+            <option value="12">12</option>
+            <option value="14">14</option>
+            <option value="16">16</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+        </select>
 
                 &nbsp;&nbsp;&nbsp;&nbsp;
          Farb <input id="colorpicker" type="color" name="color" value="#000000">
-
         		&nbsp;&nbsp;&nbsp;&nbsp;
+        <br><br>
         <button class="btn btn-primary disabled">Kunstwerk abelade</button> <i>coming soon!</i>
                 &nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -46,11 +61,12 @@ var ctx;
 var amountAxis = 1;
 
 function copyOnOthers(){
-    myCanvas = document.getElementById('myCanvas')
-    bg = document.getElementById('bg').getContext('2d')
-    for(var i=0; i<8; i++){
+    myCanvas = document.getElementById('myCanvas');
+    bg = document.getElementById('bg').getContext('2d');
+    var n = $('#amountAxis').val()/1.0;
+    for(var i=0; i<n; i++){
 	    bg.translate(500,500);
-	    bg.rotate(22.5*Math.PI/180);
+	    bg.rotate(Math.PI/n);
 	    bg.translate(-500,-500);
 	    bg.drawImage(myCanvas,0,0);
     }
