@@ -1,0 +1,120 @@
+<html>
+	<head>
+		<title>Mandala Male</title>
+	</head>
+	<body onload="InitThis();" style="padding: 10px">
+		<h2>Mandala Male</h2>
+        <button class="btn btn-primary" onclick="javascript:clearArea();return false;">Namal noi aafange</button> 
+		&nbsp;&nbsp;&nbsp;&nbsp;
+        Dicki vom Stift: <select id="selWidth">
+            <option value="1" selected="true">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="6">6</option>
+            <option value="10">10</option>
+        </select>
+        		&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-primary">Kunstwerk abelade</button> 
+        		&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <button class="btn btn-primary">Kunstwerk Share</button> 
+
+<!--        
+		 Color : <select id="selColor">
+            <option value="black" selected="selected">black</option>
+            <option value="blue">blue</option>
+            <option value="red">red</option>
+            <option value="green">green</option>
+            <option value="yellow">yellow</option>
+            <option value="gray">gray</option>
+        </select>
+ -->		
+
+ 			<br><br>
+ 			<div style="text-align: left">
+				<canvas id="bg" width="1000" height="1000" style="position:absolute;"></canvas>
+				<canvas id="myCanvas" width="1000" height="1000" style="position:absolute; border: 1px solid black;"></canvas>
+			</div>
+	</body>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+
+var mousePressed = false;
+var lastX, lastY;
+var ctx;
+var amountAxis = 1;
+
+function copyOnOthers(){
+    myCanvas = document.getElementById('myCanvas')
+    bg = document.getElementById('bg').getContext('2d')
+    bg.translate(500,500);
+    bg.rotate(22.5*Math.PI/180);
+    bg.translate(-500,-500);
+    bg.drawImage(myCanvas,0,0);
+
+}
+
+function InitThis() {
+    ctx = document.getElementById('myCanvas').getContext("2d");
+    console.log(ctx)
+    $('#myCanvas').mousedown(function (e) {
+    	console.log('watup')
+        mousePressed = true;
+        var x = e.pageX - $(this).offset().left;
+        var y = e.pageY - $(this).offset().top;
+        Draw(x, y, false);
+    });
+
+    $('#myCanvas').mousemove(function (e) {
+        if (mousePressed) {
+	        var x = e.pageX - $(this).offset().left;
+	        var y = e.pageY - $(this).offset().top;
+	        Draw(x, y, true);
+	        copyOnOthers();
+        }
+    });
+
+    $('#myCanvas').mouseup(function (e) {
+        mousePressed = false;
+
+    });
+	    $('#myCanvas').mouseleave(function (e) {
+        mousePressed = false;
+    });
+}
+
+function Draw(x, y, isDown) {
+    if (isDown) {
+        ctx.beginPath();
+        ctx.strokeStyle = $('#selColor').val();
+        ctx.lineWidth = $('#selWidth').val();
+		ctx.lineJoin = ctx.lineCap = 'round';
+		ctx.shadowBlur = 1;
+		ctx.shadowColor = 'rgb(0, 0, 0)';
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(x, y);
+        ctx.closePath();
+        ctx.stroke();
+    }
+    lastX = x; lastY = y;
+}
+	
+function clearArea() {
+    // Use the identity matrix while clearing the canvas
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    bg.setTransform(1, 0, 0, 1, 0, 0);
+    bg.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+}
+
+</script>
+
+
+
+
+</html>
