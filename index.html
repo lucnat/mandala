@@ -1,57 +1,75 @@
 <html>
 	<head>
-		<title>Mandala Male</title>
+        <title>Mandala Male</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="init.js"></script>
 	</head>
-	<body onload="InitThis();" style="padding: 10px">
-		<h2>Mandala Male</h2>
-        <button class="btn btn-danger" onclick="javascript:clearArea();return false;">Namal noi aafange</button> 
-		&nbsp;&nbsp;&nbsp;&nbsp;
-        Dicki vom Stift <select id="selWidth">
-            <option value="1" selected="true">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="6">6</option>
-            <option value="10">10</option>
-        </select>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        Azahl Spiegelachse <select id="amountAxis">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="6">6</option>
-            <option value="8">8</option>
-            <option value="10" selected="true">10</option>
-            <option value="12">12</option>
-            <option value="14">14</option>
-            <option value="16">16</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
-        </select>
 
-                &nbsp;&nbsp;&nbsp;&nbsp;
-         Farb <input id="colorpicker" type="color" name="color" value="#000000">
-        		&nbsp;&nbsp;&nbsp;&nbsp;
-        <br><br>
-        <button class="btn btn-primary disabled">Kunstwerk abelade</button> <i>coming soon!</i>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-
-        <button class="btn btn-primary disabled">Kunstwerk Share</button>  <i>coming soon!</i>
-
-
- 			<br><br>
+	<body onload="InitThis();" style="padding: 20px; text-align: center">
+        <div class="card" style="width: 1040px; padding: 20px; margin: 0 auto;">
+            <div class="row" style="margin-bottom: 0">
+                <div class="col s6" style="text-align: left">
+                    <h4 style="margin-top: 10px">Mandala male</h4>
+                </div>
+                <div class="col s1">
+                    <input style="width: 45px; height: 45px" id="colorpicker" type="color" name="color" value="#000000">
+                </div>
+                <div class="col s1" style="text-align: right; border-left: 1px solid #eee">
+                    <p>Stiftdicki</p>
+                </div>
+                <div class="col s1" style="border-right: 1px solid #eee">
+                    <div style="width: 30px;">
+                        <select id="selWidth">
+                            <option value="1" selected="true">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="6">6</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col s1" style="text-align: right; ">
+                     <p>#Spiegel</p>
+                </div>
+                <div class="col s1" style="border-right: 1px solid #eee">
+                    <div style="width: 30px">
+                        <select id="amountAxis">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="6">6</option>
+                            <option value="8">8</option>
+                            <option value="10" selected="true">10</option>
+                            <option value="12">12</option>
+                            <option value="14">14</option>
+                            <option value="16">16</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col s1" style="text-align: right; padding: 5px 0 0 0px">
+                    <button style="padding: 0px 10px 0px 10px;" class="btn-flat" onclick="javascript:clearArea();return false;">
+                        <i class="material-icons">delete</i> 
+                    </button> 
+                    <button style="padding: 0px 10px 0px 10px;" class="btn-flat disabled">
+                        <i class="material-icons">more_horiz</i> 
+                    </button> &nbsp; 
+                </div>
+            </div>
+            <div class="divider"></div>
  			<div style="text-align: left; height: 1000px">
 				<canvas id="bg" width="1000" height="1000" style="position:absolute;"></canvas>
-				<canvas id="myCanvas" width="1000" height="1000" style="position:absolute; border: 1px solid black;"></canvas>
+				<canvas id="myCanvas" width="1000" height="1000" style="position:absolute"></canvas>
 			</div>
-			<br>
-			<p>  &nbsp;&nbsp;&nbsp;&nbsp; Programmiert mit ganz vill Liebi vom Luc. Findsch cool? Hilf mir zums no cooler mache! <a href="mailto:luca@naterop.net?Subject=Danke%20Luc">Danke sege</a> oder <a href="https://github.com/LucNaterop/mandala" target="_blank">code aluege</a> oder <a href="https://github.com/LucNaterop/mandala">mithelfe</a></p>
+        </div>
+		<p>  &nbsp;&nbsp;&nbsp;&nbsp; Programmiert mit ganz vill Liebi vom Luc. Findsch cool? Hilf mir zums no cooler mache! <a href="mailto:luca@naterop.net?Subject=Danke%20Luc">Danke sege</a> oder <a href="https://github.com/LucNaterop/mandala" target="_blank">code aluege</a> oder <a href="https://github.com/LucNaterop/mandala">mithelfe</a></p>
 	</body>
-
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script>
 
